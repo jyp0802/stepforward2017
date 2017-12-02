@@ -46,7 +46,7 @@ module.exports = function(app, passport) {
 			if (rows1.length == 0)
 				res.redirect('/confirm?t=f');
 			else {
-				connection.query("SELECT * FROM Registration where cid = ? and uid = ?", [req.query.cid, req.user.id], function(err2, rows2) {
+				connection.query("SELECT * FROM Registration where uid = ? and cid = ?", [req.user.id, req.query.cid], function(err2, rows2) {
 					if (err2)
 						console.log(err2);
 					res.render('detail.ejs', {classinfo : rows1[0], registered : (rows2.length == 1)});
@@ -56,7 +56,19 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/cancel', isLoggedIn, function(req, res) {
-		
+		connection.query("DELETE FROM Registration where uid = ? and cid = ?", [req.user.id, req.body.cid], function(err, rows) {
+			console.log(err);
+			console.log(rows);
+			res.redirect('/');
+		})
+	})
+
+	app.get('/register', isLoggedIn, function(req, res) {
+		connection.query("INSERT into Registration values (?,?)", [req.user.id, req.body.cid], function(err, rows) {
+			console.log(err);
+			console.log(rows);
+			res.redirect('/');
+		})
 	})
 	
 };

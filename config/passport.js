@@ -49,7 +49,7 @@ module.exports = function(passport) {
                     connection.query("INSERT into Users (name,password,earth,campus,year) values (?,?,?,?,?)", [name, password, earth, campus, year], function(err1, rows1){
                         if (err1)
                             return done(err1);
-                        newUserMysql.id = rows1.insertId;
+                        newUserMysql.uid = rows1.insertId;
                         return done(null, newUserMysql);
                     });
                 }

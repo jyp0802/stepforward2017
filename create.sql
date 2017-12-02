@@ -21,9 +21,10 @@ CREATE TABLE Classes (
 	title varchar(255) not null,
 	speaker varchar(255) not null,
 	location varchar(255) not null,
-	max int,
+	max int not null,
 	current int not null,
 	details varchar(3000),
+	CHECK (current <= max),
 	PRIMARY KEY (cid)
 );
 
