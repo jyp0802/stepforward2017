@@ -3,7 +3,8 @@ CREATE DATABASE stepforward_db;
 USE stepforward_db;
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS Users;
-DROP TABLE IF EXISTS TempUsers;
+DROP TABLE IF EXISTS Classes;
+DROP TABLE IF EXISTS Registration;
 SET FOREIGN_KEY_CHECKS=1;
 
 CREATE TABLE Users (
@@ -25,13 +26,25 @@ CREATE TABLE Classes (
 	current int not null,
 	details varchar(3000),
 	CHECK (current <= max),
+	CHECK (current >= 0),
 	PRIMARY KEY (cid)
 );
 
 CREATE TABLE Registration (
 	uid int not null,
 	cid int not null,
-	PRIMARY KEY (uid, cid),
+	PRIMARY KEY (uid),
 	FOREIGN KEY (uid) REFERENCES Users(uid) ON DELETE CASCADE,
 	FOREIGN KEY (cid) REFERENCES Classes(cid) ON DELETE CASCADE
 );
+
+
+delimiter |
+CREATE TRIGGER register BEFORE UPDATE ON Classes
+	FOR EACH ROW BEGIN
+		IF NEW.current > NEW.max THEN
+			SIGNAL SQLSTATE '45000';
+		END IF;
+	END;
+	|
+delimiter ;

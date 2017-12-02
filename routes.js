@@ -44,7 +44,7 @@ module.exports = function(app, passport) {
 			if (err1)
 				console.log(err1);
 			if (rows1.length == 0)
-				res.redirect('/confirm?t=e');
+				res.redirect('/confirm?t=de');
 			else {
 				connection.query("SELECT * FROM Registration where uid = ? and cid = ?", [req.user.uid, req.query.cid], function(err2, rows2) {
 					if (err2)
@@ -56,24 +56,42 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/cancel', isLoggedIn, function(req, res) {
-		connection.query("DELETE FROM Registration where uid = ? and cid = ?", [req.user.uid, req.query.cid], function(err, rows) {
-			if (err || rows.affectedRows == 0) {
-				console.log(rows);
-				res.redirect('/confirm?t=e');
+		connection.query("UPDATE Classes SET current = current - 1 where cid = ?", [req.query.cid], function(err1, rows1) {
+			if (err1) {
+				console.log(err1);
+				res.redirect('/confirm?t=ce');
 			}
-			else
-				res.redirect('/confirm?t=s');
+			else {
+				connection.query("DELETE FROM Registration where uid = ? and cid = ?", [req.user.uid, req.query.cid], function(err2, rows2) {
+					if (err2 || rows2.affectedRows == 0) {
+						console.log(rows2);
+						res.redirect('/confirm?t=ce');
+					}
+					else {
+						res.redirect('/confirm?t=cs');
+					}
+				})
+			}
 		})
 	})
 
 	app.get('/register', isLoggedIn, function(req, res) {
-		connection.query("INSERT into Registration values (?,?)", [req.user.uid, req.query.cid], function(err, rows) {
-			if (err || rows.affectedRows == 0) {
-				console.log(rows);
-				res.redirect('/confirm?t=e');
+		connection.query("UPDATE Classes SET current = (current + 1) where cid = ?", [req.query.cid], function(err1, rows1) {
+			if (err1) {
+				console.log(err1);
+				res.redirect('/confirm?t=ref');
 			}
-			else
-				res.redirect('/confirm?t=s');
+			else {
+				connection.query("INSERT into Registration values (?,?)", [req.user.uid, req.query.cid], function(err, rows) {
+					if (err || rows.affectedRows == 0) {
+						console.log(err);
+						res.redirect('/confirm?t=red');
+					}
+					else{
+						res.redirect('/confirm?t=rs');
+					}
+				})
+			}
 		})
 	})
 
@@ -81,6 +99,13 @@ module.exports = function(app, passport) {
 		res.render('confirm.ejs', {t : req.query.t});
 	});
 
+	app.get('/mycid', isLoggedIn, function(req, res) {
+		connection.query("SELECT * FROM Classes where cid = (SELECT cid FROM Registration where uid=?)", [req.user.uid], function(err, rows) {
+			if (!rows.length)
+				res.redirect('/confirm?t=me');
+			res.render('detail.ejs', {classinfo : rows[0], registered : true});
+		})
+	});
 	
 };
 
