@@ -31,7 +31,7 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/deleteAccount', function(req, res) {
-		connection.query("DELETE FROM Users WHERE id = ?", [req.user.id], function(err, rows) {
+		connection.query("DELETE FROM Users WHERE id = ?", [req.user.uid], function(err, rows) {
 			console.log(rows);
 			console.log(err);
 			req.logOut();
@@ -44,9 +44,9 @@ module.exports = function(app, passport) {
 			if (err1)
 				console.log(err1);
 			if (rows1.length == 0)
-				res.redirect('/confirm?t=f');
+				res.redirect('/confirm?t=e');
 			else {
-				connection.query("SELECT * FROM Registration where uid = ? and cid = ?", [req.user.id, req.query.cid], function(err2, rows2) {
+				connection.query("SELECT * FROM Registration where uid = ? and cid = ?", [req.user.uid, req.query.cid], function(err2, rows2) {
 					if (err2)
 						console.log(err2);
 					res.render('detail.ejs', {classinfo : rows1[0], registered : (rows2.length == 1)});
@@ -56,20 +56,31 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/cancel', isLoggedIn, function(req, res) {
-		connection.query("DELETE FROM Registration where uid = ? and cid = ?", [req.user.id, req.body.cid], function(err, rows) {
-			console.log(err);
-			console.log(rows);
-			res.redirect('/');
+		connection.query("DELETE FROM Registration where uid = ? and cid = ?", [req.user.uid, req.query.cid], function(err, rows) {
+			if (err || rows.affectedRows == 0) {
+				console.log(rows);
+				res.redirect('/confirm?t=e');
+			}
+			else
+				res.redirect('/confirm?t=s');
 		})
 	})
 
 	app.get('/register', isLoggedIn, function(req, res) {
-		connection.query("INSERT into Registration values (?,?)", [req.user.id, req.body.cid], function(err, rows) {
-			console.log(err);
-			console.log(rows);
-			res.redirect('/');
+		connection.query("INSERT into Registration values (?,?)", [req.user.uid, req.query.cid], function(err, rows) {
+			if (err || rows.affectedRows == 0) {
+				console.log(rows);
+				res.redirect('/confirm?t=e');
+			}
+			else
+				res.redirect('/confirm?t=s');
 		})
 	})
+
+	app.get('/confirm', isLoggedIn, function(req, res){
+		res.render('confirm.ejs', {t : req.query.t});
+	});
+
 	
 };
 

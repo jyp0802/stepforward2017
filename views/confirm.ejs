@@ -9,34 +9,10 @@
 </head>
 <body>
 	<div class="outer">
-		<% if (t == 'r') { %>
-		<p id="here">Book has been uploaded</p>
-		<form action="/details">
-			<input type="hidden" name="bookid" value="<%= bookid %>"/>
-			<input type="submit" class="confirm_button" value="Go to registered book"/>
-		</form>
-		<% } else if (t == 'rf') { %>
-		<p id="here">Book cannot be uploaded</p>
-		<% } else if (t == 'd') { %>
-		<p id="here">Book has been deleted</p>
-		<% } else if (t == 'df') { %>
-		<p id="here">Book cannot be deleted</p>
-		<% } else if (t == 'e') { %>
-		<p id="here">Book has been edited</p>
-		<form action="/details">
-			<input type="hidden" name="bookid" value="<%= bookid %>"/>
-			<input type="submit" class="confirm_button" value="Go to edited book"/>
-		</form>
-		<% } else if (t == 'ef') { %>
-		<p id="here">Book cannot be edited</p>
-		<% } else if (t == 'f') { %>
-		<p id="here">No such book</p>
-		<% } else if (t == 'rsd') { %>
-		<p id="here">Book has been reserved</p>
-		<% } else if (t == 'rsc') { %>
-		<p id="here">Reservation has been cancled</p>
-		<% } else if (t == 'rscf') { %>
-		<p id="here">Reservation cannot be cancled</p>
+		<% if (t == 'e') { %>
+		<p>Error</p>
+		<% } else if (t == 's') { %>
+		<p>Success</p>
 		<% } %>
 		<form action="/">
 			<input type="submit" class="confirm_button" value="Go to main page"/>
