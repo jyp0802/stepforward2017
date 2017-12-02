@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to 금식수련회!</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="mainbox">
+		<% for (x in classlist) { %>
+		<div class="classitem" id="col">
+			<a href="/details?cid=<%= classlist[x].cid %>" id="c_title"><%= classlist[x].title %></a>
+			<p>강사: <%= classlist[x].speaker %></p>
+			<p>장소: <%= classlist[x].location %></p>
+			<p>수강인원: <%= classlist[x].current %>/<%= classlist[x].max %></p>
+		</div>
+		<% } %>
+		<% if (classlist.length == 0) { %>
+		<h3>No classes available</h3>
+		<% } %>
+	</div>
+</body>
+</html>

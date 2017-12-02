@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Class Detail</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="bigbox">
+		<p>강사: <%= classinfo.speaker %></p>
+		<p>장소: <%= classinfo.location %></p>
+		<p>수강인원: <%= classinfo.current %>/<%= classinfo.max %></p>
+		<% if (registered) { %>
+		<form action="/cancel">
+			<input type="hidden" name="cid" value="<%= classinfo.cid %>"/>
+		  <input type="submit" class="" value="취소하기"/>
+		</form>
+		<% } else { %>
+		<form action="/register">
+			<input type="hidden" name="cid" value="<%= classinfo.cid %>"/>
+		  <input type="submit" class="" value="등록하기"/>
+		</form>
+		<% } %>
+	</div>
+</body>
+</html>

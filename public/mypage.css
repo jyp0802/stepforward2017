@@ -1,0 +1,51 @@
+.outerbox {
+	font-family: 'Nanum Gothic', serif;
+	border: 1px solid #CCCCCC;
+	width: 840px;
+	margin: 30px auto;
+	font-size: 15px;
+	padding: 30px 0px;
+}
+
+.midbox {
+	width: 90%;
+	margin: auto;
+}
+
+.mypagetitle {
+	font-size: 20px;
+	font-weight: normal;
+	margin: 0px;
+	height: 50px;
+}
+
+.innerbox {
+	padding: 7px;
+	border-top: 1px solid #aaaaaa;
+	border-top-style: dotted;
+}
+
+.items {
+	border: 1px solid #CCCCCC;
+	border-radius: 3px;
+	width: 300px;
+	height: 200px;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px;
+	font-family: 'Nanum Gothic', serif;
+	padding: 18px;
+}
+
+td {
+	width: 100px;
+}
+
+.myPageBut {
+	background-color: #caddff;
+	padding: 4px 8px;
+	margin-bottom: 3px;
+	border: none;
+	border-radius: 1px;
+	font-size: 13px;
+}

@@ -1,0 +1,22 @@
+html, body {
+	background-color: #fafafa;
+	margin: 0px 0px 0px 0px;
+}
+
+.mainbox {
+	width: 100%;
+	background-color: #336699;
+	text-align: center;
+	display: table;
+}
+
+.classitem {
+	border: 1px solid #CCCCCC;
+	border-radius: 3px;
+	width: 400px;
+	height: 160px;
+	display: inline-block;
+	margin: 10px;
+	font-family: 'Nanum Gothic', serif;
+	padding: 10px;
+}

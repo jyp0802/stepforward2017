@@ -1,0 +1,39 @@
+html, body {
+	background-color: #4577e5;
+}
+
+.title {
+	font-size: 40px;
+	color: #000
+}
+
+.outerbox {
+	width: 800px;
+	background-color: #FFFFFF;
+	overflow: hidden;
+	margin: auto;
+	border-radius: 6px;
+	padding: 30px;
+	text-align: center;
+}
+
+.bluebutton {
+	background-color: #4577e5;
+	color: white;
+	padding: 8px 0px 8px 0px;
+	border: none;
+	border-radius: 1px;
+}
+
+p {
+	font-size: 14px;
+	color: #666666;
+}
+
+input {
+	width: 200px;
+	padding: 2px 2px;
+	border-color: #AAAAAA;
+	border-radius: 1px;
+	border-width: 0.8px;
+}
