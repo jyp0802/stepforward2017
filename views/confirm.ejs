@@ -10,13 +10,19 @@
 <body>
 	<div class="outer">
 		<% if (t == 'e') { %>
-		<p>Error</p>
+		<div align="center" class="maintitle">
+			<p style="color:white"> 등록할 수 없습니다</p>
+		</div>
 		<% } else if (t == 's') { %>
-		<p>Success</p>
+		<div align="center" class="maintitle">
+			<p style="color:white"> 등록되었습니다</p>
+		</div>
 		<% } %>
+		<div align="center">
 		<form action="/">
-			<input type="submit" class="confirm_button" value="Go to main page"/>
+			<input type="submit" class="confirm_button" value="메인 페이지로"/>
 		</form>
+		</div>
 	</div>
 
 </body>
