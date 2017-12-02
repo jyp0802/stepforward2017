@@ -18,7 +18,7 @@
 	<div class="mainbox">
 		<% for (x in classlist) { %>
 		<div class="classitem" id="col">
-			<a href="/details?cid=<%= classlist[x].cid %>" id="c_title"><%= classlist[x].title %></a>
+			<a href="/details?cid=<%= classlist[x].cid %>" id="c_title" style="color: white"><%= classlist[x].title %></a>
 			<p>강사: <%= classlist[x].speaker %></p>
 			<p>장소: <%= classlist[x].location %></p>
 			<p>수강인원: <%= classlist[x].current %>/<%= classlist[x].max %></p>

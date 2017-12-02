@@ -18,6 +18,16 @@ html, body {
 	display: table;
 }
 
+.bigbox {
+	border: 1px solid #FFFFFF;
+	border-radius: 2px;
+	margin: auto;
+	width: 800px;
+	height: 400px;
+	alignment-baseline: center;
+	align-content: center;
+}
+
 .classitem {
 	border: 1px solid #FFFFFF;
 	border-radius: 3px;
