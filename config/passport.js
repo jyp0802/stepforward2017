@@ -29,9 +29,9 @@ module.exports = function(passport) {
         new LocalStrategy({
             usernameField : 'name',
             passwordField : 'password',
-            passReqToCallback : true // allows us to pass back the entire request to the callback
+            passReqToCallback : true
         },
-        function(req, email, password, done) { // callback with email and password from our form
+        function(req, email, password, done) {
             var name = req.body.name;
             var password = req.body.password;
             var earth = req.body.earth;
@@ -56,7 +56,7 @@ module.exports = function(passport) {
                 else {
                     // if the user is found but the password is wrong
                     if (password != rows[0].password)
-                        return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
+                        return done(null, false, req.flash('loginMessage', '비밀번호가 다릅니다.')); // create the loginMessage and save it to session as flashdata
 
                     // all is well, return successful user
                     return done(null, rows[0]);

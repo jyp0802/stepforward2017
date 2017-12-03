@@ -46,29 +46,32 @@ module.exports = function(app, passport) {
 			if (rows1.length == 0)
 				res.redirect('/confirm?t=de');
 			else {
-				connection.query("SELECT * FROM Registration where uid = ? and cid = ?", [req.user.uid, req.query.cid], function(err2, rows2) {
+				connection.query("SELECT * FROM Users where uid = ? and cid = ?", [req.user.uid, req.query.cid], function(err2, rows2) {
 					if (err2)
 						console.log(err2);
-					res.render('detail.ejs', {classinfo : rows1[0], registered : (rows2.length == 1)});
+					res.render('detail.ejs', {classinfo : rows1[0], registered : (rows2.length > 0)});
 				});
 			}
 		});
 	});
 
 	app.get('/cancel', isLoggedIn, function(req, res) {
-		connection.query("UPDATE Classes SET current = current - 1 where cid = ?", [req.query.cid], function(err1, rows1) {
-			if (err1) {
-				console.log(err1);
-				res.redirect('/confirm?t=ce');
-			}
+		connection.query("SELECT cid from Users where uid = ?", [req.user.uid], function(err, rows) {
+			if (err)
+				res.redirect('/confirm?t=e');
+			else if (rows[0].cid == null)
+				res.redirect('/confirm?t=cet');
 			else {
-				connection.query("DELETE FROM Registration where uid = ? and cid = ?", [req.user.uid, req.query.cid], function(err2, rows2) {
-					if (err2 || rows2.affectedRows == 0) {
-						console.log(rows2);
+				connection.query("UPDATE Classes SET current = (current - 1) where cid = ?", [req.query.cid], function(err1, rows1) {
+					if (err1)
 						res.redirect('/confirm?t=ce');
-					}
 					else {
-						res.redirect('/confirm?t=cs');
+						connection.query("UPDATE Users SET cid = null where uid = ?", [req.user.uid], function(err, rows) {
+							if (err)
+								res.redirect('/confirm?t=e');
+							else
+								res.redirect('/confirm?t=cs');
+						})
 					}
 				})
 			}
@@ -76,19 +79,24 @@ module.exports = function(app, passport) {
 	})
 
 	app.get('/register', isLoggedIn, function(req, res) {
-		connection.query("UPDATE Classes SET current = (current + 1) where cid = ?", [req.query.cid], function(err1, rows1) {
-			if (err1) {
-				console.log(err1);
-				res.redirect('/confirm?t=ref');
-			}
+		connection.query("SELECT cid from Users where uid = ?", [req.user.uid], function(err, rows) {
+			if (err)
+				res.redirect('/confirm?t=e');
+			else if (rows[0].cid == req.query.cid)
+				res.redirect('/confirm?t=ret');
+			else if (rows[0].cid != null)
+				res.redirect('/confirm?t=red');
 			else {
-				connection.query("INSERT into Registration values (?,?)", [req.user.uid, req.query.cid], function(err, rows) {
-					if (err || rows.affectedRows == 0) {
-						console.log(err);
-						res.redirect('/confirm?t=red');
-					}
-					else{
-						res.redirect('/confirm?t=rs');
+				connection.query("UPDATE Classes SET current = (current + 1) where cid = ?", [req.query.cid], function(err1, rows1) {
+					if (err1)
+						res.redirect('/confirm?t=ref');
+					else {
+						connection.query("UPDATE Users SET cid = ? where uid = ?", [req.query.cid, req.user.uid], function(err, rows) {
+							if (err)
+								res.redirect('/confirm?t=e');
+							else
+								res.redirect('/confirm?t=rs');
+						})
 					}
 				})
 			}
@@ -100,10 +108,11 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/mycid', isLoggedIn, function(req, res) {
-		connection.query("SELECT * FROM Classes where cid = (SELECT cid FROM Registration where uid=?)", [req.user.uid], function(err, rows) {
+		connection.query("SELECT * FROM Classes where cid = (SELECT cid FROM Users where uid = ?)", [req.user.uid], function(err, rows) {
 			if (!rows.length)
 				res.redirect('/confirm?t=me');
-			res.render('detail.ejs', {classinfo : rows[0], registered : true});
+			else
+				res.render('detail.ejs', {classinfo : rows[0], registered : true});
 		})
 	});
 	

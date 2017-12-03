@@ -9,12 +9,12 @@
 </head>
 <body>
 	<div class="maintitle" align="center">
-	<p style="color:white"> 금식수련회에 오신 것을 환영합니다!</p>
-	<p style="color:white"> 아래 목록에서 원하는 강의를 선택하세요 </p>
+		<p style="color:white"> 금식수련회에 오신 것을 환영합니다!</p>
+		<p style="color:white"> 아래 목록에서 원하는 강의를 선택하세요 </p>
 	</div>
 	<div class="content" align="center">
-	<p style="color:white"> * 강의 취소시 신청했던 강의를 선택하세요 </p>
-	<a href="/mycid" style="font-size: 16px;color:white">내가 신청한 강의 보러 가기</a>
+		<p style="color:white"> * 강의 취소시 신청했던 강의를 선택하세요 </p>
+		<a href="/mycid" style="font-size: 16px;color:white">내가 신청한 강의 보러 가기</a>
 	</div>
 	<div class="mainbox">
 		<% for (x in classlist) { %>
@@ -26,7 +26,7 @@
 		</div>
 		<% } %>
 		<% if (classlist.length == 0) { %>
-		<h3>No classes available</h3>
+		<p style="color:#000; font-size: 30px"> 강의가 없습니다 </p>
 		<% } %>
 	</div>
 </body>

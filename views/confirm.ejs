@@ -17,6 +17,10 @@
 		<div align="center" class="maintitle">
 			<p style="color:white"> 강의를 취소할 수 없습니다</p>
 		</div>
+		<% } else if (t == 'cet') { %>
+		<div align="center" class="maintitle">
+			<p style="color:white"> 벌써 강의를 취소하셨습니다</p>
+		</div>
 		<% } else if (t == 'cs') { %>
 		<div align="center" class="maintitle">
 			<p style="color:white"> 강의를 취소했습니다</p>
@@ -27,7 +31,11 @@
 		</div>
 		<% } else if (t == 'red') { %>
 		<div align="center" class="maintitle">
-			<p style="color:white"> 중복 신청 불가능</p>
+			<p style="color:white"> 강의는 하나만 신청할 수 있습니다</p>
+		</div>
+		<% } else if (t == 'ret') { %>
+		<div align="center" class="maintitle">
+			<p style="color:white"> 벌써 강의를 신청하셨습니다</p>
 		</div>
 		<% } else if (t == 'rs') { %>
 		<div align="center" class="maintitle">
@@ -36,6 +44,10 @@
 		<% } else if (t == 'me') { %>
 		<div align="center" class="maintitle">
 			<p style="color:white"> 아직 신청한 강의가 없습니다</p>
+		</div>
+		<% } else if (t == 'e') { %>
+		<div align="center" class="maintitle">
+			<p style="color:white"> 에러</p>
 		</div>
 		<% } %>
 		<div align="center">
