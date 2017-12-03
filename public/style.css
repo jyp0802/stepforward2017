@@ -1,5 +1,5 @@
 html, body {
-	background-color: #863253;
+	background-color: #97709e;
 	margin: 0px 0px 0px 0px;
 }
 
@@ -13,7 +13,6 @@ html, body {
 }
 .mainbox {
 	width: 100%;
-	background-color: #863253;
 	text-align: center;
 	display: table;
 }
@@ -40,27 +39,34 @@ html, body {
 }
 
 .line{
-	border:1.5px dashed lightgray;
+	border:1.5px dashed black;
 }
 
 .button{
 	margin-right: 20px;
 	background-color: transparent;
-  color: white;
-  border: 2px solid #FFFFFF;
+  	color: white;
+  	border: 2px solid #FFFFFF;
 	font-size: 15px;
 }
 
 .buttoncenter{
 	background-color: transparent;
-  color: white;
-  border: 2px solid #FFFFFF;
+  	color: white;
+  	border: 2px solid #FFFFFF;
 	font-size: 15px;
 }
 
+.buttonhome{
+	margin-top: 15px;
+	background-color: transparent;
+  	color: white;
+  	width: 80px;
+  	border: 2px solid #FFFFFF;
+	font-size: 20px;
+}
+
 .mybigbox {
-	border: 1px solid #FFFFFF;
-	border-radius: 2px;
 	margin: auto;
 	width: 900px;
 	height: 440px;
@@ -69,7 +75,7 @@ html, body {
 }
 
 .myside {
-	width: 48%;
+	width: 50%;
 	height: 100%;
 	text-align: center;
 	font-family: 'Nanum Gothic', serif;
@@ -78,7 +84,7 @@ html, body {
 .myitem {
 	border: 2px solid #FFFFFF;
 	border-radius: 3px;
-	width: 90%;
+	width: 95%;
 	height: 350px;
 	display: inline-block;
 	margin: 10px;
