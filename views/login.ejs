@@ -9,6 +9,7 @@
 	<script>
 		function createOption(sel, value, text) {
 			var opt = document.createElement('option');
+			opt.id = "c_"+value;
 			opt.value = value;
 			opt.text = text;
 			sel.options.add(opt);
@@ -61,17 +62,26 @@
 			</select>
 
 			<p>이름:</p>
-			<input type="text" name="name" placeholder="이름" required="true">
+			<input type="text" id="name" name="name" placeholder="이름" required="true">
 			<p>비밀번호:</p>
 			<input type="password" name="password" required="required">
 			<p>로그인이 처음일 경우 새로운 비밀번호를 생성하세요. 재 로그인일 경우 처음에 설정 했던 비밀번호를 입력하세요.</p>
 
-			<section class="messages"><%= login_message %></section>
+			<p class="errormessage"><%= login_message %></p>
 			<input type="submit" id="submit_button" class="pinkbutton" value="로그인">
 		</form>
 	</div>
 	<div align="center">
-	<p style="color:white;font-size:12px"> 비밀번호 분실 및 오류 보고는 사랑하는 준용이에게로 해주세요 </p>
+		<p style="color:white;font-size:12px"> 비밀번호 분실 및 오류 보고는 사랑하는 준용이에게로 해주세요 </p>
 	</div>
+	<% if (wrong) { %>
+	<script>
+		document.getElementById('e_'+"<%= earth %>").selected = true;
+		getcampus();
+		document.getElementById('c_'+"<%= campus %>").selected = true;
+		document.getElementById('y_'+"<%= year %>").selected = true;
+		document.getElementById('name').value = "<%= name %>"
+	</script>
+	<% } %>
 </body>
 </html>

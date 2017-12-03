@@ -55,8 +55,13 @@ module.exports = function(passport) {
                 }
                 else {
                     // if the user is found but the password is wrong
-                    if (password != rows[0].password)
+                    if (password != rows[0].password) {
+                        req.flash('name', name);
+                        req.flash('earth', earth);
+                        req.flash('campus', campus);
+                        req.flash('year', year);
                         return done(null, false, req.flash('loginMessage', '비밀번호가 다릅니다.')); // create the loginMessage and save it to session as flashdata
+                    }
 
                     // all is well, return successful user
                     return done(null, rows[0]);
