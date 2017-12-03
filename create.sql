@@ -4,6 +4,7 @@ USE stepforward_db;
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS Classes;
 DROP TABLE IF EXISTS Users;
+DROP TABLE If EXISTS Bible;
 SET FOREIGN_KEY_CHECKS=1;
 
 CREATE TABLE Classes (
@@ -19,6 +20,19 @@ CREATE TABLE Classes (
 	PRIMARY KEY (cid)
 );
 
+CREATE TABLE Bible (
+	bid int not null auto_increment,
+	title varchar(255) not null,
+	speaker varchar(255) not null,
+	location varchar(255) not null,
+	max int not null,
+	current int not null,
+	details varchar(3000),
+	CHECK (current <= max),
+	CHECK (current >= 0),
+	PRIMARY KEY (bid)
+);
+
 CREATE TABLE Users (
   uid int not null auto_increment,
   name varchar(255) not null,
@@ -27,8 +41,10 @@ CREATE TABLE Users (
   campus varchar(255) not null,
   year int not null,
   cid int,
+  bid int,
   PRIMARY KEY (uid),
-  FOREIGN KEY (cid) REFERENCES Classes(cid) ON DELETE SET NULL
+  FOREIGN KEY (cid) REFERENCES Classes(cid) ON DELETE SET NULL,
+  FOREIGN KEY (bid) REFERENCES Bible(bid) ON DELETE SET NULL
 );
 
 delimiter |

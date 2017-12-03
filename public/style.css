@@ -29,7 +29,7 @@ html, body {
 }
 
 .classitem {
-	border: 1px solid #FFFFFF;
+	border: 2px solid #FFFFFF;
 	border-radius: 3px;
 	width: 400px;
 	height: 160px;
@@ -37,4 +37,8 @@ html, body {
 	margin: 10px;
 	font-family: 'Nanum Gothic', serif;
 	padding: 10px;
+}
+
+.line{
+	border:2px dashed white;
 }
