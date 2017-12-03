@@ -11,7 +11,10 @@ module.exports = function(app, passport) {
 	app.get('/', isLoggedIn, function(req, res) {
 		connection.query("SELECT * FROM Classes", function(err, rows) {
 			if (err) console.log(err);
-			res.render('index.ejs', {classlist : rows});
+			connection.query("SELECT * From Bible", function(err1, rows1) {
+				if(err1) console.log(err1);
+				res.render('index.ejs', {classlist : rows, biblelist : rows1});
+			})
 		})
 	});
 
@@ -21,10 +24,6 @@ module.exports = function(app, passport) {
 		var earth = req.flash('earth');
 		var campus = req.flash('campus');
 		var year = req.flash('year');
-		console.log(name);
-		console.log(earth);
-		console.log(campus);
-		console.log(year);
 		res.render('login.ejs', {wrong : (loginMessage.length != 0), login_message : loginMessage, name : name, earth : earth, campus : campus, year : year});
 	});
 

@@ -39,7 +39,7 @@ CREATE TABLE Users (
   password varchar(255) not null,
   earth varchar(255) not null,
   campus varchar(255) not null,
-  year int not null,
+  year varchar(255) not null,
   cid int,
   bid int,
   PRIMARY KEY (uid),
