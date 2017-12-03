@@ -21,13 +21,13 @@
 		<form action="/cancel">
 			<input type="hidden" name="t" value="c"/>
 			<input type="hidden" name="cid" value="<%= classinfo.cid %>"/>
-		  <input type="submit" class="" value="취소하기"/>
+		  <input type="submit" class="buttoncenter" value="취소하기"/>
 		</form>
 		<% } else { %>
 		<form action="/register">
 			<input type="hidden" name="t" value="c"/>
 			<input type="hidden" name="cid" value="<%= classinfo.cid %>"/>
-		  <input type="submit" class="" value="신청하기"/>
+		  <input type="submit" class="buttoncenter" value="신청하기"/>
 		</form>
 		<% } %>
 	</div>
@@ -41,13 +41,13 @@
 		<form action="/cancel">
 			<input type="hidden" name="t" value="b"/>
 			<input type="hidden" name="bid" value="<%= bibleinfo.bid %>"/>
-		  <input type="submit" class="" value="취소하기"/>
+		  <input type="submit" class="buttoncenter" value="취소하기"/>
 		</form>
 		<% } else { %>
 		<form action="/register">
 			<input type="hidden" name="t" value="b"/>
 			<input type="hidden" name="bid" value="<%= bibleinfo.bid %>"/>
-		  <input type="submit" class="" value="신청하기"/>
+		  <input type="submit" class="buttoncenter" value="신청하기"/>
 		</form>
 		<% } %>
 	</div>
