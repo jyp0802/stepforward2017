@@ -43,17 +43,45 @@ html, body {
 	border:1.5px dashed lightgray;
 }
 
- .button{
+.button{
 	margin-right: 20px;
 	background-color: transparent;
-    color: white;
-    border: 2px solid #FFFFFF;
+  color: white;
+  border: 2px solid #FFFFFF;
 	font-size: 15px;
 }
 
 .buttoncenter{
 	background-color: transparent;
-    color: white;
-    border: 2px solid #FFFFFF;
+  color: white;
+  border: 2px solid #FFFFFF;
 	font-size: 15px;
+}
+
+.mybigbox {
+	border: 1px solid #FFFFFF;
+	border-radius: 2px;
+	margin: auto;
+	width: 900px;
+	height: 440px;
+	alignment-baseline: center;
+	align-content: center;
+}
+
+.myside {
+	width: 48%;
+	height: 100%;
+	text-align: center;
+	font-family: 'Nanum Gothic', serif;
+}
+
+.myitem {
+	border: 2px solid #FFFFFF;
+	border-radius: 3px;
+	width: 90%;
+	height: 350px;
+	display: inline-block;
+	margin: 10px;
+	font-family: 'Nanum Gothic', serif;
+	padding: 10px;
 }
