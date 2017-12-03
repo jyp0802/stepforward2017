@@ -10,16 +10,22 @@ module.exports = function(app, passport) {
 
 	app.get('/', isLoggedIn, function(req, res) {
 		connection.query("SELECT * FROM Classes", function(err, rows) {
-			if (err)
-				console.log(err);
+			if (err) console.log(err);
 			res.render('index.ejs', {classlist : rows});
 		})
 	});
 
 	app.get('/login', function(req, res) {
 		var loginMessage = req.flash('loginMessage');
-		if (loginMessage) l_msg = loginMessage;
-		res.render('login.ejs', {login_message : l_msg});
+		var name = req.flash('name');
+		var earth = req.flash('earth');
+		var campus = req.flash('campus');
+		var year = req.flash('year');
+		console.log(name);
+		console.log(earth);
+		console.log(campus);
+		console.log(year);
+		res.render('login.ejs', {wrong : (loginMessage.length != 0), login_message : loginMessage, name : name, earth : earth, campus : campus, year : year});
 	});
 
 	app.post('/login', passport.authenticate('local-login', { successRedirect : '/', failureRedirect : '/' }));
