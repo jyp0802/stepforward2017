@@ -40,5 +40,20 @@ html, body {
 }
 
 .line{
-	border:1.5px dashed white;
+	border:1.5px dashed lightgray;
+}
+
+ .button{
+	margin-right: 20px;
+	background-color: transparent;
+    color: white;
+    border: 2px solid #FFFFFF;
+	font-size: 15px;
+}
+
+.buttoncenter{
+	background-color: transparent;
+    color: white;
+    border: 2px solid #FFFFFF;
+	font-size: 15px;
 }
