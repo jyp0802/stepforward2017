@@ -1,0 +1,6 @@
+insert into Bible (title, speaker, location, current, max) values("기독교 역사 (세계 교회사)", "임수빈 간사", "미정", 6, 20);
+insert into Bible (title, speaker, location, current, max) values("기독교 세계관", "현지식  목사", "미정", 2, 40);
+insert into Bible (title, speaker, location, current, max) values("느헤미야를 통해 본 리더십", "이봉희 간사", "미정", 12, 50);
+insert into Bible (title, speaker, location, current, max) values("크리스천 비전스쿨", "김훈중 목사", "미정", 7, 35);
+insert into Bible (title, speaker, location, current, max) values("행복하게 잘 지내는 방법", "장세영 간사", "미정", 17, 25);
+insert into Bible (title, speaker, location, current, max) values("성서 지리", "조신형 간사", "미정", 0, 25);
