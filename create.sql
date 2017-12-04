@@ -56,3 +56,9 @@ CREATE TRIGGER register BEFORE UPDATE ON Classes
 	END;
 	|
 delimiter ;
+
+ALTER DATABASE stepforward_db CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+ALTER TABLE Classes CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE Bible CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE Users CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
