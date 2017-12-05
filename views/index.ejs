@@ -30,7 +30,7 @@
 			<p>장소: <%= biblelist[x].location %></p>
 			<p>수강인원: <%= biblelist[x].current %>/<%= biblelist[x].max %></p>
 			<% if (biblelist[x].bid == mybid) { %>
-			<form action="/cancel">
+			<form action="/cancel" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 				<input type="hidden" name="t" value="b"/>
 				<input type="hidden" name="bid" value="<%= biblelist[x].bid %>"/>
 			  <input type="submit" class="buttoncenter" value="취소하기"/>
@@ -58,7 +58,7 @@
 			<p>장소: <%= classlist[x].location %></p>
 			<p>수강인원: <%= classlist[x].current %>/<%= classlist[x].max %></p>
 			<% if (classlist[x].cid == mycid) { %>
-			<form action="/cancel">
+			<form action="/cancel" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 				<input type="hidden" name="t" value="c"/>
 				<input type="hidden" name="cid" value="<%= classlist[x].cid %>"/>
 			  <input type="submit" class="buttoncenter" value="취소하기"/>
