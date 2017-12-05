@@ -13,26 +13,6 @@
 	</div>
 	<div class="mybigbox">
 		<div class="myside" style="float: left;">
-			<h3 style="color:white">선택특강</h3>
-			<% if (creg) { %>
-			<div class="myitem" align="center">
-				<h3 style="color:white"><%= classinfo.title %></h3>
-				<p style="color:white">강사: <%= classinfo.speaker %></p>
-				<p style="color:white">장소: <%= classinfo.location %></p>
-				<p style="color:white">수강인원: <%= classinfo.current %>/<%= classinfo.max %></p>
-				<form action="/cancel">
-					<input type="hidden" name="t" value="c"/>
-					<input type="hidden" name="cid" value="<%= classinfo.cid %>"/>
-				  <input type="submit" class="buttoncenter" value="취소하기"/>
-				</form>
-			</div>
-			<% } else { %>
-			<div class="myitem" align="center">
-				<h4 style="color:white">강의를 선택하지 않으셨습니다</h4>
-			</div>
-			<% } %>
-		</div>
-		<div class="myside" style="float: right;">
 			<h3 style="color:white">주제강의/성서강해</h3>
 			<% if (breg) { %>
 			<div class="myitem" align="center">
@@ -43,6 +23,26 @@
 				<form action="/cancel">
 					<input type="hidden" name="t" value="b"/>
 					<input type="hidden" name="bid" value="<%= bibleinfo.bid %>"/>
+				  <input type="submit" class="buttoncenter" value="취소하기"/>
+				</form>
+			</div>
+			<% } else { %>
+			<div class="myitem" align="center">
+				<h4 style="color:white">강의를 선택하지 않으셨습니다</h4>
+			</div>
+			<% } %>
+		</div>
+		<div class="myside" style="float: right;">
+			<h3 style="color:white">선택특강</h3>
+			<% if (creg) { %>
+			<div class="myitem" align="center">
+				<h3 style="color:white"><%= classinfo.title %></h3>
+				<p style="color:white">강사: <%= classinfo.speaker %></p>
+				<p style="color:white">장소: <%= classinfo.location %></p>
+				<p style="color:white">수강인원: <%= classinfo.current %>/<%= classinfo.max %></p>
+				<form action="/cancel">
+					<input type="hidden" name="t" value="c"/>
+					<input type="hidden" name="cid" value="<%= classinfo.cid %>"/>
 				  <input type="submit" class="buttoncenter" value="취소하기"/>
 				</form>
 			</div>

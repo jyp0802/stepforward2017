@@ -11,6 +11,7 @@ html, body {
 	margin-top: 0px;
 	font-size: 16px;
 }
+
 .mainbox {
 	width: 100%;
 	text-align: center;
@@ -31,11 +32,16 @@ html, body {
 	border: 2px solid #FFFFFF;
 	border-radius: 3px;
 	width: 400px;
-	height: 160px;
+	height: 200px;
 	display: inline-block;
 	margin: 10px;
 	font-family: 'Nanum Gothic', serif;
-	padding: 10px;
+	padding: 8px;
+}
+
+.item_title {
+	font-size: 16px;
+	color: white;
 }
 
 .line{
@@ -45,24 +51,24 @@ html, body {
 .button{
 	margin-right: 20px;
 	background-color: transparent;
-  	color: white;
-  	border: 2px solid #FFFFFF;
+	color: white;
+	border: 2px solid #FFFFFF;
 	font-size: 15px;
 }
 
 .buttoncenter{
 	background-color: transparent;
-  	color: white;
-  	border: 2px solid #FFFFFF;
+	color: white;
+	border: 2px solid #FFFFFF;
 	font-size: 15px;
 }
 
 .buttonhome{
 	margin-top: 15px;
 	background-color: transparent;
-  	color: white;
-  	width: 80px;
-  	border: 2px solid #FFFFFF;
+	color: white;
+	width: 80px;
+	border: 2px solid #FFFFFF;
 	font-size: 20px;
 }
 

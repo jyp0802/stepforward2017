@@ -25,10 +25,23 @@
 		<h4 style="color:white"> 1. 주제강의/성서강해 </h4>
 		<% for (x in biblelist) { %>
 		<div class="item" id="col">
-			<a href="/details?t=b&bid=<%= biblelist[x].bid %>" id="b_title" style="color: white"><%= biblelist[x].title %></a>
+			<a href="/details?t=b&bid=<%= biblelist[x].bid %>" id="b_title" class="item_title"><%= biblelist[x].title %></a>
 			<p>강사: <%= biblelist[x].speaker %></p>
 			<p>장소: <%= biblelist[x].location %></p>
 			<p>수강인원: <%= biblelist[x].current %>/<%= biblelist[x].max %></p>
+			<% if (biblelist[x].bid == mybid) { %>
+			<form action="/cancel">
+				<input type="hidden" name="t" value="b"/>
+				<input type="hidden" name="bid" value="<%= biblelist[x].bid %>"/>
+			  <input type="submit" class="buttoncenter" value="취소하기"/>
+			</form>
+			<% } else { %>
+			<form action="/register">
+				<input type="hidden" name="t" value="b"/>
+				<input type="hidden" name="bid" value="<%= biblelist[x].bid %>"/>
+			  <input type="submit" class="buttoncenter" value="신청하기"/>
+			</form>
+			<% } %>
 		</div>
 		<% } %>
 		<% if (biblelist.length == 0) { %>
@@ -40,10 +53,23 @@
 		<h4 style="color:white"> 2. 선택강의 </h4>
 		<% for (x in classlist) { %>
 		<div class="item" id="col">
-			<a href="/details?t=c&cid=<%= classlist[x].cid %>" id="c_title" style="color: white"><%= classlist[x].title %></a>
+			<a href="/details?t=c&cid=<%= classlist[x].cid %>" id="c_title" class="item_title"><%= classlist[x].title %></a>
 			<p>강사: <%= classlist[x].speaker %></p>
 			<p>장소: <%= classlist[x].location %></p>
 			<p>수강인원: <%= classlist[x].current %>/<%= classlist[x].max %></p>
+			<% if (classlist[x].cid == mycid) { %>
+			<form action="/cancel">
+				<input type="hidden" name="t" value="c"/>
+				<input type="hidden" name="cid" value="<%= classlist[x].cid %>"/>
+			  <input type="submit" class="buttoncenter" value="취소하기"/>
+			</form>
+			<% } else { %>
+			<form action="/register">
+				<input type="hidden" name="t" value="c"/>
+				<input type="hidden" name="cid" value="<%= classlist[x].cid %>"/>
+			  <input type="submit" class="buttoncenter" value="신청하기"/>
+			</form>
+			<% } %>
 		</div>
 		<% } %>
 		<% if (classlist.length == 0) { %>
