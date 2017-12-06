@@ -22,7 +22,7 @@ insert into Classes (title, speaker, location, current, max) values("선교를 �
 insert into Classes (title, speaker, location, current, max) values("나를 사랑하지 못하는 이유.. 자존감", "김윤경 간사", "미정", 0, 25);
 
 insert into Bible (title, speaker, location, current, max) values("기독교 역사 (세계 교회사)", "임수빈 간사", "미정", 0, 25);
-insert into Bible (title, speaker, location, current, max) values("기독교 세계관", "현지식  목사", "미정", 0, 25);
+insert into Bible (title, speaker, location, current, max) values("기독교 세계관", "현지식 목사", "미정", 0, 25);
 insert into Bible (title, speaker, location, current, max) values("느헤미야를 통해 본 리더십", "이봉희 간사", "미정", 0, 25);
 insert into Bible (title, speaker, location, current, max) values("크리스천 비전스쿨", "김훈중 목사", "미정", 0, 25);
 insert into Bible (title, speaker, location, current, max) values("행복하게 잘 지내는 방법", "장세영 간사", "미정", 0, 25);
