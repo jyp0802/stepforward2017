@@ -1,0 +1,90 @@
+html, body {
+	background-color: #fcf5e8;
+}
+
+.maintitle{
+	font-size: 30px;
+}
+
+.mainbox {
+	width: 100%;
+	text-align: center;
+}
+
+.home_button {
+	position: absolute;
+	left: 100px;
+	top: 32px;
+}
+
+.button{
+	margin-right: 20px;
+	background-color: #cccccc44;
+	color: #7c7c7c;
+	border: 2px solid #7c7c7c;
+	border-radius: 8px;
+	font-size: 20px;
+}
+
+.item {
+	border-radius: 5px;
+	width: 300px;
+	height: auto;
+	min-height: 200px;
+	display: inline-block;
+	margin: 10px;
+	padding: 0 10px 4px 10px;
+	font-family: 'Nanum Gothic', serif;
+	overflow: hidden;
+	text-align: left;
+	background-color: #cccccc44;
+}
+
+.item_title {
+	font-size: 16px;
+	font-weight: bold;
+	overflow: hidden;
+	padding-left: 4px;
+	padding-right: 4px;
+	margin: 10px 0 8px 0;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+.firstitem {
+	border-radius: 5px;
+	width: 80%;
+	height: auto;
+	display: inline-block;
+	margin: 0% 5% 8px 5%;
+	font-family: 'Nanum Gothic', serif;
+	overflow: hidden;
+	text-align: left;
+	padding: 0px 10px 15px 10px;
+	background-color: #cccccc44;
+}
+
+.firstitem_title {
+	margin: 10px 0 8px 0;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.line {
+	border:1.2px dashed grey;
+}
+
+.person {
+	margin: 0px 4px 3px 4px;
+	display: inline-block;
+}
+
+.person2 {
+	width: 56px;
+	margin: 0;
+	margin-bottom: 2px;
+	display: inline-table;
+	text-align: center;
+}
