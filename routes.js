@@ -85,7 +85,7 @@ module.exports = function(app, passport) {
 			connection.query("SELECT cid from Users where uid = ?", [req.user.uid], function(err, rows) {
 				if (err)
 					res.redirect('/confirm?t=e');
-				else if (rows[0].cid == null)
+				else if (rows[0].cid == null || rows[0].cid != req.query.cid)
 					res.redirect('/confirm?t=cet');
 				else {
 					connection.query("UPDATE Classes SET current = (current - 1) where cid = ?", [req.query.cid], function(err1, rows1) {
@@ -107,7 +107,7 @@ module.exports = function(app, passport) {
 			connection.query("SELECT bid from Users where uid = ?", [req.user.uid], function(err, rows) {
 				if (err)
 					res.redirect('/confirm?t=e');
-				else if (rows[0].bid == null)
+				else if (rows[0].bid == null || rows[0].bid != req.query.bid)
 					res.redirect('/confirm?t=cet');
 				else {
 					connection.query("UPDATE Bible SET current = (current - 1) where bid = ?", [req.query.bid], function(err1, rows1) {
@@ -199,6 +199,28 @@ module.exports = function(app, passport) {
 			})
 		})
 	});
+
+	app.get('/overview', function(req, res){
+		connection.query("SELECT cid, title FROM Classes", function(err1, classes) {
+			if (err1) console.log(err1);
+			connection.query("SELECT bid, title FROM Bible", function(err2, bibles) {
+				if (err2) console.log(err2);
+				connection.query("SELECT name, cid, bid FROM Users", function(err, rows) {
+					var classlist = [["미신청"]];
+					var biblelist = [["미신청"]];
+					for (i in classes)
+						classlist.push([classes[i].title]);
+					for (i in bibles)
+						biblelist.push([bibles[i].title]);
+					for (p in rows) {
+						classlist[rows[p].cid==null ? 0 : rows[p].cid].push(rows[p].name);
+						biblelist[rows[p].bid==null ? 0 : rows[p].bid].push(rows[p].name);
+					}
+					res.render('overview.ejs', {classlist : classlist, biblelist : biblelist});
+				})	
+			})
+		})
+	})
 };
 
 // route middleware to make sure

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Overview</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="maintitle" align="center">
+		<p style="color:white">전체 신청 현황</p>
+	</div>
+	<div align="right">
+		<form action="/logout">
+			<input type="submit" id="submit_button" class="button" value="log out">
+		</form>
+	</div>
+	<hr class="line"/>
+	<div class="mainbox">
+		<h4 style="color:white"> 1. 주제강의/성서강해 </h4>
+		<% if (biblelist.length > 1) { %>
+			<% for (x in biblelist) { %>
+			<div class="item" id="col">
+				<p class="item_title"><%= biblelist[x][0] %></p>
+				<% for (n=1; n< biblelist[x].length; n++) { %><p><%= biblelist[x][n] %></p><% } %>
+			</div>
+			<% } %>
+		<% } else { %>
+			<p style="color:#000; font-size: 30px"> 강의가 없습니다 </p>
+		<% } %>
+	</div>
+	<hr class="line"/>
+	<div class="mainbox">
+		<h4 style="color:white"> 2. 선택강의 </h4>
+		<% if (classlist.length > 1) { %>
+			<% for (x in classlist) { %>
+			<div class="item" id="col">
+				<p class="item_title"><%= classlist[x][0] %></p>
+				<% for (n=1; n< classlist[x].length; n++) { %><p><%= classlist[x][n] %></p><% } %>
+			</div>
+			<% } %>
+		<% } else { %>
+			<p style="color:#000; font-size: 30px"> 강의가 없습니다 </p>
+		<% } %>
+	</div>
+</body>
+</html>
