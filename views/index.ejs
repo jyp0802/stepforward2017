@@ -30,7 +30,7 @@
 			<form action="/cancel" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 				<input type="hidden" name="t" value="b"/>
 				<input type="hidden" name="bid" value="<%= biblelist[x].bid %>"/>
-			  <input type="submit" class="buttoncenter" value="취소하기"/>
+			  <input type="submit" class="cancel_button" value="취소하기"/>
 			</form>
 			<% } else { %>
 			<form action="/register">
@@ -58,7 +58,7 @@
 			<form action="/cancel" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 				<input type="hidden" name="t" value="c"/>
 				<input type="hidden" name="cid" value="<%= classlist[x].cid %>"/>
-			  <input type="submit" class="buttoncenter" value="취소하기"/>
+			  <input type="submit" class="cancel_button" value="취소하기"/>
 			</form>
 			<% } else { %>
 			<form action="/register">
