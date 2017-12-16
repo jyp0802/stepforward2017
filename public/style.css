@@ -48,19 +48,31 @@ html, body {
 }
 
 .line{
-	border:1.5px dashed black;
+	border:1.5px dashed #555;
 }
 
 .list_button {
 	position: absolute;
 	right: 3%;
 	top: 40px;
+	margin-right: 20px;
+	background-color: transparent;
+	color: white;
+	border: 2px solid #FFFFFF;
+	border-radius: 8px;
+	font-size: 16px;
 }
 
 .logout_button {
 	position: absolute;
 	right: 3%;
 	margin-top: -28px;
+	margin-right: 20px;
+	background-color: transparent;
+	color: white;
+	border: 2px solid #FFFFFF;
+	border-radius: 8px;
+	font-size: 16px;
 }
 
 .button{
