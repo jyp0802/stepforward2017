@@ -213,8 +213,8 @@ module.exports = function(app, passport) {
 					for (i in bibles)
 						biblelist.push([bibles[i].title]);
 					for (p in rows) {
-						classlist[rows[p].cid==null ? 0 : rows[p].cid].push([rows[p].name, rows[p].campus]);
-						biblelist[rows[p].bid==null ? 0 : rows[p].bid].push([rows[p].name, rows[p].campus]);
+						classlist[rows[p].cid==null ? 0 : rows[p].cid].push({name : rows[p].name, campus : rows[p].campus});
+						biblelist[rows[p].bid==null ? 0 : rows[p].bid].push({name : rows[p].name, campus : rows[p].campus});
 					}
 					res.render('overview.ejs', {classlist : classlist, biblelist : biblelist});
 				})	
