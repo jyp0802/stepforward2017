@@ -17,12 +17,12 @@
 		<% if (biblelist.length > 1) { %>
 			<div class="firstitem" id="col">
 				<p class="firstitem_title">아직 신청 안함</p>
-				<% for (n=1; n< biblelist[0].length; n++) { %><p class="person"><%= biblelist[0][n] %></p><% } %>
+				<% for (n=1; n< biblelist[0].length; n++) { %><p class="person"><%= biblelist[0][n][0] %>(<%= biblelist[0][n][1] %>)</p><% } %>
 			</div>
 			<% for (x=1; x< biblelist.length; x++) { %>
 			<div class="item" id="col">
 				<p class="item_title"><%= biblelist[x][0] %></p>
-				<% for (n=1; n< biblelist[x].length; n++) { %><p class="person2"><%= biblelist[x][n] %></p><% } %>
+				<% for (n=1; n< biblelist[x].length; n++) { %><p class="person2"><%= biblelist[x][n][0] %>(<%= biblelist[x][n][1] %>)</p><% } %>
 			</div>
 			<% } %>
 		<% } else { %>
@@ -35,12 +35,12 @@
 		<% if (classlist.length > 1) { %>
 			<div class="firstitem" id="col">
 				<p class="firstitem_title">아직 신청 안함</p>
-				<% for (n=1; n< classlist[0].length; n++) { %><p class="person"><%= classlist[0][n] %></p><% } %>
+				<% for (n=1; n< classlist[0].length; n++) { %><p class="person"><%= classlist[0][n][0] %>(<%= classlist[0][n][1] %>)</p><% } %>
 			</div>
 			<% for (x=1; x< classlist.length; x++) { %>
 			<div class="item" id="col">
 				<p class="item_title"><%= classlist[x][0] %></p>
-				<% for (n=1; n< classlist[x].length; n++) { %><p class="person2"><%= classlist[x][n] %></p><% } %>
+				<% for (n=1; n< classlist[x].length; n++) { %><p class="person2"><%= classlist[x][n][0] %>(<%= classlist[x][n][1] %>)</p><% } %>
 			</div>
 			<% } %>
 		<% } else { %>

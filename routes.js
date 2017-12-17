@@ -205,7 +205,7 @@ module.exports = function(app, passport) {
 			if (err1) console.log(err1);
 			connection.query("SELECT bid, title FROM Bible", function(err2, bibles) {
 				if (err2) console.log(err2);
-				connection.query("SELECT name, cid, bid FROM Users", function(err, rows) {
+				connection.query("SELECT name, campus, cid, bid FROM Users", function(err, rows) {
 					var classlist = [["미신청"]];
 					var biblelist = [["미신청"]];
 					for (i in classes)
@@ -213,8 +213,8 @@ module.exports = function(app, passport) {
 					for (i in bibles)
 						biblelist.push([bibles[i].title]);
 					for (p in rows) {
-						classlist[rows[p].cid==null ? 0 : rows[p].cid].push(rows[p].name);
-						biblelist[rows[p].bid==null ? 0 : rows[p].bid].push(rows[p].name);
+						classlist[rows[p].cid==null ? 0 : rows[p].cid].push([rows[p].name, rows[p].campus]);
+						biblelist[rows[p].bid==null ? 0 : rows[p].bid].push([rows[p].name, rows[p].campus]);
 					}
 					res.render('overview.ejs', {classlist : classlist, biblelist : biblelist});
 				})	
