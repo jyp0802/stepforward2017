@@ -28,6 +28,17 @@ html, body {
 	align-content: center;
 }
 
+.title {
+	white-space: pre-line;
+}
+
+.class_details {
+	font-style: italic;
+	font-size: 20px;
+	padding: 20px 40px 20px 40px;
+	white-space: pre-line;
+}
+
 .cancel_button {
 	background-color: #FFFFFF;
 	color: #6699bb;
@@ -46,13 +57,19 @@ html, body {
 	font-family: 'Nanum Gothic', serif;
 	padding: 8px;
 	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+	position: relative;
 }
 
 .item_title {
-	font-size: 16px;
+	text-decoration: none;
+	border-bottom: 1.5px solid white;
+	font-size: 20px;
 	color: white;
+	white-space: pre-line;
+}
+
+.index_details {
+	margin-top: 10px;
 }
 
 .line{
@@ -83,7 +100,7 @@ html, body {
 	font-size: 16px;
 }
 
-.button{
+.button {
 	margin-right: 20px;
 	background-color: transparent;
 	color: white;
@@ -92,20 +109,27 @@ html, body {
 	font-size: 16px;
 }
 
-.buttoncenter{
+.buttoncenter {
 	background-color: transparent;
 	color: white;
 	border: 2px solid #FFFFFF;
 	font-size: 15px;
 }
 
-.buttonhome{
+.buttonhome {
 	margin-top: 15px;
 	background-color: transparent;
 	color: white;
 	width: 80px;
 	border: 2px solid #FFFFFF;
 	font-size: 20px;
+}
+
+.index_button {
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+	right: 20px;
 }
 
 .mybigbox {

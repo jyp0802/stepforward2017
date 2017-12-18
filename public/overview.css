@@ -38,15 +38,14 @@ html, body {
 }
 
 .item_title {
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: bold;
 	overflow: hidden;
 	padding-left: 4px;
 	padding-right: 4px;
 	margin: 10px 0 8px 0;
-	white-space: nowrap;
-	text-overflow: ellipsis;
 	text-align: center;
+	white-space: pre-line;
 }
 
 .firstitem {

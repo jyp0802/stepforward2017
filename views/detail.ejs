@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Class Detail</title>
+	<title>상세 내용</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
@@ -13,7 +13,7 @@
 	</div>
 	<% if (type == "bible") { %>
 	<div class="bigbox" align="center">
-		<h3 style="color:white"><%= bibleinfo.title %></h3>
+		<h3 style="color:white" class="title"><%= bibleinfo.title %></h3>
 		<p style="color:white">강사: <%= bibleinfo.speaker %></p>
 		<p style="color:white">장소: <%= bibleinfo.location %></p>
 		<p style="color:white">수강인원: <%= bibleinfo.current %>/<%= bibleinfo.max %></p>
@@ -33,10 +33,10 @@
 	</div>
 	<% } else if (type == "class") { %>
 	<div class="bigbox" align="center">
-		<h3 style="color:white"><%= classinfo.title %></h3>
+		<h3 style="color:white" class="title"><%= classinfo.title %></h3>
 		<p style="color:white">강사: <%= classinfo.speaker %></p>
-		<p style="color:white">장소: <%= classinfo.location %></p>
 		<p style="color:white">수강인원: <%= classinfo.current %>/<%= classinfo.max %></p>
+		<p style="color:white" class="class_details"><%= classinfo.details %></p>
 		<% if (registered) { %>
 		<form action="/cancel" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 			<input type="hidden" name="t" value="c"/>
