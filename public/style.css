@@ -43,14 +43,6 @@ html, body {
 	white-space: pre-line;
 }
 
-.cancel_button {
-	background-color: #FFFFFF;
-	color: #6699bb;
-	font-weight: bold;
-	border: 2px solid #FFFFFF;
-	font-size: 15px;
-}
-
 .item {
 	border: 2px solid #FFFFFF;
 	border-radius: 3px;
@@ -123,6 +115,15 @@ html, body {
 	margin: 8px 0 0 0;
 	color: white;
 	font-size: 20px;
+}
+
+.cancel_button {
+	background-color: white;
+	color: transparent;
+	font-weight: bold;
+	border: 2px solid #FFFFFF;
+	border-radius: 4px;
+	font-size: 16px;
 }
 
 .buttoncenter {
