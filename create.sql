@@ -47,7 +47,7 @@ CREATE TABLE Users (
 );
 
 delimiter |
-CREATE TRIGGER register BEFORE UPDATE ON Classes
+CREATE TRIGGER registerClass BEFORE UPDATE ON Classes
 	FOR EACH ROW BEGIN
 		IF NEW.current > NEW.max or NEW.current < 0 THEN
 			SIGNAL SQLSTATE '45000';
@@ -57,7 +57,7 @@ CREATE TRIGGER register BEFORE UPDATE ON Classes
 delimiter ;
 
 delimiter |
-CREATE TRIGGER register BEFORE UPDATE ON Bible
+CREATE TRIGGER registerBible BEFORE UPDATE ON Bible
 	FOR EACH ROW BEGIN
 		IF NEW.current > NEW.max or NEW.current < 0 THEN
 			SIGNAL SQLSTATE '45000';
