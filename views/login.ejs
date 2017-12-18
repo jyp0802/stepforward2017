@@ -14,15 +14,45 @@
 			opt.text = text;
 			sel.options.add(opt);
 		}
-		var list5 = ["건양대", "과기대", "대전대", "목원대", "배재대", "우송대", "중부대", "충남대", "카이스트", "한남대", "한밭대", "그 외"];
+		var list1 = ["공주대", "공주교대", "한국영상대", "간사"];
+		var list2 = ["건양대", "과기대", "대전대", "목원대", "배재대", "우송대", "중부대", "충남대", "카이스트", "한남대", "한밭대", "간사"];
+		var list3 = ["고려대", "홍익대", "간사"];
+		var list4 = ["공주대예산", "공주대천안", "나사렛대", "남서울대", "단국대", "백석대", "백석문화대", "상명대", "서남대", "순천향대", "연암대", "호서대아산", "호서대천안", "간사"];
+		var list5 = ["한서대", "혜전대", "청운대", "간사"];
+		var list6 = ["기타"];
 		
 		function getcampus() {
 			var campus_select = document.getElementById('sel_campus');
 			var earth = document.getElementById('sel_earth').value;
 			campus_select.options.length = 1;
-			if (earth == "대전") {
+			if (earth == "공주") {
+				for (i = 0; i < list1.length; i++) {
+					createOption(campus_select, list1[i], list1[i]);
+				}
+			}
+			else if (earth == "대전") {
+				for (i = 0; i < list2.length; i++) {
+					createOption(campus_select, list2[i], list2[i]);
+				}
+			}
+			else if (earth == "세종") {
+				for (i = 0; i < list3.length; i++) {
+					createOption(campus_select, list3[i], list3[i]);
+				}
+			}
+			else if (earth == "천안") {
+				for (i = 0; i < list4.length; i++) {
+					createOption(campus_select, list4[i], list4[i]);
+				}
+			}
+			else if (earth == "홍성") {
 				for (i = 0; i < list5.length; i++) {
 					createOption(campus_select, list5[i], list5[i]);
+				}
+			}
+			else if (earth == "기타") {
+				for (i = 0; i < list6.length; i++) {
+					createOption(campus_select, list6[i], list6[i]);
 				}
 			}
 		}
@@ -58,7 +88,7 @@
 				<option id="y_15" value="15">15</option>
 				<option id="y_16" value="16">16</option>
 				<option id="y_17" value="17">17</option>
-				<option id="y_0" value="0">그 외</option>
+				<option id="y_0" value="0">기타</option>
 			</select>
 
 			<p style="margin-bottom: 4px">이름:</p>
