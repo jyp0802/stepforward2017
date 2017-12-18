@@ -56,6 +56,16 @@ CREATE TRIGGER register BEFORE UPDATE ON Classes
 	|
 delimiter ;
 
+delimiter |
+CREATE TRIGGER register BEFORE UPDATE ON Bible
+	FOR EACH ROW BEGIN
+		IF NEW.current > NEW.max or NEW.current < 0 THEN
+			SIGNAL SQLSTATE '45000';
+		END IF;
+	END;
+	|
+delimiter ;
+
 ALTER DATABASE stepforward_db CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 ALTER TABLE Classes CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
