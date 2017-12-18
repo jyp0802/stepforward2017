@@ -19,23 +19,27 @@ html, body {
 }
 
 .bigbox {
+	position: relative;
 	border: 1px solid #FFFFFF;
 	border-radius: 2px;
 	margin: auto;
 	width: 800px;
-	height: 400px;
+	height: 440px;
 	alignment-baseline: center;
 	align-content: center;
 }
 
 .title {
 	white-space: pre-line;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .class_details {
+	color: white;
 	font-style: italic;
-	font-size: 20px;
-	padding: 20px 40px 20px 40px;
+	font-size: 22px;
+	padding: 10px 30px 20px 30px;
 	white-space: pre-line;
 }
 
@@ -70,59 +74,72 @@ html, body {
 
 .index_details {
 	margin-top: 10px;
+	margin-bottom: 0px;
+	font-size: 16px;
 }
 
 .line{
 	border:1.5px dashed #555;
 }
 
-.list_button {
+.overview_button {
 	position: absolute;
 	right: 3%;
 	top: 40px;
-	margin-right: 20px;
 	background-color: transparent;
 	color: white;
 	border: 2px solid #FFFFFF;
 	border-radius: 8px;
-	font-size: 16px;
+	font-size: 20px;
 }
 
 .logout_button {
 	position: absolute;
 	right: 3%;
-	margin-top: -28px;
-	margin-right: 20px;
+	margin-top: -32px;
 	background-color: transparent;
 	color: white;
 	border: 2px solid #FFFFFF;
 	border-radius: 8px;
-	font-size: 16px;
+	font-size: 20px;
 }
 
-.button {
-	margin-right: 20px;
+.detail_form {
+	position: absolute;
+	bottom: 40px;
+	left: 40px;
+	right: 40px;
+}
+
+.detail_button {
 	background-color: transparent;
 	color: white;
 	border: 2px solid #FFFFFF;
-	border-radius: 8px;
-	font-size: 16px;
+	border-radius: 4px;
+	font-size: 20px;
+}
+
+.detail_info {
+	margin: 8px 0 0 0;
+	color: white;
+	font-size: 20px;
 }
 
 .buttoncenter {
 	background-color: transparent;
 	color: white;
 	border: 2px solid #FFFFFF;
-	font-size: 15px;
+	border-radius: 4px;
+	font-size: 16px;
 }
 
 .buttonhome {
-	margin-top: 15px;
+	margin-top: 40px;
 	background-color: transparent;
 	color: white;
-	width: 80px;
 	border: 2px solid #FFFFFF;
-	font-size: 20px;
+	border-radius: 4px;
+	font-size: 22px;
 }
 
 .index_button {

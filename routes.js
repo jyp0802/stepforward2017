@@ -3,6 +3,7 @@
 var mysql = require('mysql');
 var dbconfig = require('./config/database');
 var connection = mysql.createConnection(dbconfig.connection);
+var overview_pw = "seum";
 
 connection.query('USE ' + dbconfig.database);
 
@@ -200,36 +201,42 @@ module.exports = function(app, passport) {
 		})
 	});
 
-	app.get('/overview', function(req, res){
-		connection.query("SELECT cid, title FROM Classes", function(err1, classes) {
-			if (err1) console.log(err1);
-			connection.query("SELECT bid, title FROM Bible", function(err2, bibles) {
-				if (err2) console.log(err2);
-				connection.query("SELECT name, campus, cid, bid FROM Users", function(err, rows) {
-					var classlist = [["미신청"]];
-					var biblelist = [["미신청"]];
-					for (i in classes)
-						classlist.push([classes[i].title]);
-					for (i in bibles)
-						biblelist.push([bibles[i].title]);
-					for (p in rows) {
-						classlist[rows[p].cid==null ? 0 : rows[p].cid].push({name : rows[p].name, campus : rows[p].campus});
-						biblelist[rows[p].bid==null ? 0 : rows[p].bid].push({name : rows[p].name, campus : rows[p].campus});
-					}
-					res.render('overview.ejs', {classlist : classlist, biblelist : biblelist});
-				})	
+	app.get('/overview', function(req, res) {
+		res.render('overviewauthenticate.ejs', {wrong : false});
+	});
+
+	app.post('/overview', function(req, res) {
+		if (req.body.password == overview_pw) {
+			connection.query("SELECT cid, title FROM Classes", function(err1, classes) {
+				if (err1) console.log(err1);
+				connection.query("SELECT bid, title FROM Bible", function(err2, bibles) {
+					if (err2) console.log(err2);
+					connection.query("SELECT name, campus, cid, bid FROM Users", function(err, rows) {
+						var classlist = [["미신청"]];
+						var biblelist = [["미신청"]];
+						for (i in classes)
+							classlist.push([classes[i].title]);
+						for (i in bibles)
+							biblelist.push([bibles[i].title]);
+						for (p in rows) {
+							classlist[rows[p].cid==null ? 0 : rows[p].cid].push({name : rows[p].name, campus : rows[p].campus});
+							biblelist[rows[p].bid==null ? 0 : rows[p].bid].push({name : rows[p].name, campus : rows[p].campus});
+						}
+						res.render('overview.ejs', {classlist : classlist, biblelist : biblelist});
+					})	
+				})
 			})
-		})
+		}
+		else {
+			res.render('overviewauthenticate.ejs', {wrong : true});
+		}
 	})
+
 };
 
-// route middleware to make sure
-function isLoggedIn(req, res, next) {
 
-	// if user is authenticated in the session, carry on
+function isLoggedIn(req, res, next) {
 	if (req.isAuthenticated())
 		return next();
-
-	// if they aren't redirect them to the home page
 	res.redirect('/login');
 }

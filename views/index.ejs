@@ -13,13 +13,13 @@
 		<p style="color:white"> 아래 목록에서 원하는 <주제강의/성서강해> 와 <선택강의> 를 선택하세요 </p>
 	</div>
 	<div class="content" align="center">
-		<a href="/my" style="font-size: 16px;color:white">내가 신청한 강의 보러 가기</a>
+		<a href="/my" style="font-size: 20px;color:white">내가 신청한 강의 보러 가기</a>
 	</div>
 	<input type="button" onClick="location.href='/logout'" class="logout_button" value="로그아웃">
-	<input type="button" onClick="location.href='/overview'" class="list_button" value="신청현황">
+	<input type="button" onClick="location.href='/overview'" class="overview_button" value="신청현황">
 	<hr class="line"/>
 	<div class="mainbox">
-		<h4 style="color:white"> 1. 주제강의/성서강해 </h4>
+		<h3 style="color:white"> 1. 주제강의/성서강해 </h3>
 		<% for (x in biblelist) { %>
 		<div class="item" id="col">
 			<a href="/details?t=b&bid=<%= biblelist[x].bid %>" id="b_title" class="item_title"><%= biblelist[x].title %></a>
@@ -47,7 +47,7 @@
 	</div>
 	<hr class="line"/>
 	<div class="mainbox">
-		<h4 style="color:white"> 2. 선택강의 </h4>
+		<h3 style="color:white"> 2. 선택강의 </h3>
 		<% for (x in classlist) { %>
 		<div class="item" id="col">
 			<a href="/details?t=c&cid=<%= classlist[x].cid %>" id="c_title" class="item_title"><%= classlist[x].title %></a>
