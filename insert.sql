@@ -12,7 +12,7 @@ insert into Classes (title, speaker, details, current, max) values("광야에서
 insert into Classes (title, speaker, details, current, max) values("NK의 현실과 탈북민 선교", "신정호 간사", "북한은 같은 민족이며 우리가 알아야 하고 기도해야 할 우리나라입니다.\n 북한의 현재 상황, 탈북민의 이야기, 지금 할 수 있는 선교와 기도는\n 무엇인지 함께 알아갑시다", 0, 20);
 insert into Classes (title, speaker, details, current, max) values("\"난 순장인데 왜 안 행복하지?\"", "진인엽, 박종필 간사", "행복한 순장의 삶을 살고 싶은 사람, 순장이 뭘까 고민되는 사람!", 0, 30);
 insert into Classes (title, speaker, details, current, max) values("늬 하나님의 뜻을 아이 모르니?", "이동수 간사", "하나님의 뜻을 알아가고 발견하는 방법을 이해하는 시간", 0, 20);
-insert into Classes (title, speaker, details, current, max) values("경천 한잔 할래요?", "양진웅 간사", "", 0, 20);
+insert into Classes (title, speaker, details, current, max) values("경청 한 잔 할래요?", "양진웅 간사", "", 0, 20);
 insert into Classes (title, speaker, details, current, max) values("늘 괜찮다 말하는 당신에게", "최새로미 간사", "", 0, 20);
 insert into Classes (title, speaker, details, current, max) values("고딩? 어 순원! (신입생 트렌드 알아보기)", "박구연 간사", "어떻게 하면 오늘날 청소년들의 마음의 문을 열 수 있을까를 함께\n 고민해보는 시간!", 0, 20);
 insert into Classes (title, speaker, details, current, max) values("동상이몽 너는 내 운명\n (커플이 함께 참여해주세요)", "김선화, 손요섭 간사", "남자의 눈으로 바라본 여자! 여자의 눈으로 바라본 남자!\n 커플들이 겪게 되는 어려움을 함께 고민해보는 시간", 0, 30);
