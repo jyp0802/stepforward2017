@@ -228,7 +228,7 @@ module.exports = function(app, passport) {
 						}
 						for (b in biblelist) {
 							biblelist[b] = biblelist[b].sort(nameCompare);
-							biblelist[b][0] = [bibles[b].title];
+							biblelist[b][0] = bibles[b].title;
 						}
 						res.render('overview.ejs', {classlist : classlist, biblelist : biblelist});
 					})	
