@@ -222,10 +222,10 @@ module.exports = function(app, passport) {
 							classlist[rows[p].cid==null ? 0 : rows[p].cid].push({name : rows[p].name, campus : rows[p].campus});
 							biblelist[rows[p].bid==null ? 0 : rows[p].bid].push({name : rows[p].name, campus : rows[p].campus});
 						}
-						for (c in classlist)
-							classlist[c] = classlist[c].sort(nameCompare);
-						for (b in biblelist)
-							biblelist[b] = biblelist[b].sort(nameCompare);
+						// for (c in classlist)
+						// 	classlist[c] = classlist[c].sort(nameCompare);
+						// for (b in biblelist)
+						// 	biblelist[b] = biblelist[b].sort(nameCompare);
 						res.render('overview.ejs', {classlist : classlist, biblelist : biblelist});
 					})	
 				})
